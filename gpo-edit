@@ -1,0 +1,29 @@
+<#
+$xmlText = @”
+<? Xml version=”1.0” encoding=”uft-8”>
+	<Drives clsid=”{letter-number-string}”>
+		<Drive clsid=”{letter-number-string}”>
+			<Properties action =”R” thisDrive=”SHOW” allDrives=”NOCHANGE” username= “” etc..>
+			<Filters>
+				<FilterGroup bool=”AND” etc….>
+</Filters>
+		</Drive>
+</Drives>
+”@
+#>
+
+$xmlPath = Path\to\gpo\properties\xml
+
+$xmlData = [xml] (get-content -Path $xmlPath)
+
+$oldFilter = @($xmlData.Drives.Drive.Filters.FilterGroup)[0]
+$oldFilter.bool = “OR”
+
+$newFilter = $oldFilter.Clone()
+$newFilter.bool = “OR”
+$newFilter.name = “thisIs\MyName”
+$newFilter.sid = “my-s-i-d”
+
+$xmlData.Drives.Drive.Filters.AppendChild($newFilter)
+
+($xmlData).Save($xmlPath)
