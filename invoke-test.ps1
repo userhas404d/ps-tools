@@ -12,7 +12,7 @@ $ScriptText01 = "
 `username = CHANGEME
 `$pass = 'CHANGEME' 
 `$cred = New-Object System.Managment.Automation.PSCredential -ArgumentList @(`$username,(ConvertTo-SecureString -String `$pass -Asplaintext -Force))
-invoke-command -Computername QWS01 -ScriptBlock {C:\Users\xadministrator\Desktop\test.ps1} -Authentication Credssp -Credential `$cred
+invoke-command -Computername QWS01 -ScriptBlock {C:\Users\CHANGEME\Desktop\test.ps1} -Authentication Credssp -Credential `$cred
 "
 
 #create new .ps file to run
