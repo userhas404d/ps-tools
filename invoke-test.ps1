@@ -28,7 +28,7 @@ Add-computer -DomainName ```$domain -Credential ```$credential`" > C:\Users\CHAN
 "
 
 #attempt domain join directly from console
-$cmd = @"
+$ScriptText03 = @"
 `$domain = "quarantine"
 `$password = "$DomainAccountPWD" | ConvertTo-SecureString -asPlainText -force;
 `$username = "$userID";
