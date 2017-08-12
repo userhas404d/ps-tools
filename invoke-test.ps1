@@ -1,3 +1,6 @@
+#name of target VM
+$MyVM = CHANGEME
+
 #Guest VM Credentials
 $guestAdmin = "CHANGEME"
 $guestPassword = ConvertTo-SecureString “CHANGEME” -AsPlainText -Force
@@ -33,5 +36,5 @@ $cmd = @"
 Add-computer -DomainName `$domain -Credential `$credential
 "@
 
-Invoke-VMScript -ScriptText $ScriptText02 -vm $NewVMName -GuestCredential $guestCredential -ScriptType Powershell
+Invoke-VMScript -ScriptText $ScriptText02 -vm $MyVM -GuestCredential $guestCredential -ScriptType Powershell
 
