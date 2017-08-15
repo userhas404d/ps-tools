@@ -12,7 +12,7 @@ $userID = 'CHANGEME'
 
 #Works but requires WinRM and CredSSP configuration
 $ScriptText01 = "
-`username = CHANGEME
+`$username = CHANGEME
 `$pass = 'CHANGEME' 
 `$cred = New-Object System.Managment.Automation.PSCredential -ArgumentList @(`$username,(ConvertTo-SecureString -String `$pass -Asplaintext -Force))
 invoke-command -Computername QWS01 -ScriptBlock {C:\Users\CHANGEME\Desktop\test.ps1} -Authentication Credssp -Credential `$cred
